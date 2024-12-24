@@ -28,12 +28,10 @@ class CounterCubitView extends StatelessWidget {
                 return Text(
                   '$state',
                   style: const TextStyle(
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontSize: 48, fontWeight: FontWeight.bold),
                 );
               },
-            ),
+            )
           ],
         ),
       ),
@@ -50,13 +48,15 @@ class CounterCubitView extends StatelessWidget {
           ),
           FloatingActionButton(
             onPressed: () {
-              context.read<CounterCubit>().decrement();
+              context.read<CounterCubit>().drcrement();
             },
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
           ),
           FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<CounterCubit>().reset();
+            },
             tooltip: 'Reset',
             child: const Icon(Icons.reset_tv),
           ),
