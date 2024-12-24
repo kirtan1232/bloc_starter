@@ -1,34 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-int initial = 0;
+class ArithmeticCubit extends Cubit<int> {
+  ArithmeticCubit() : super(0);
 
-class CounterCubit extends Cubit<int> {
-  CounterCubit() : super(initial);
-
-  void increment() {
-    emit(state + 1);
+  void add(int firstNumber, int secondNumber) {
+    emit(firstNumber + secondNumber);
   }
 
-  void drcrement() {
-    emit(state - 1);
-    if (state == 98) {
-      reset();
-    }
+  void subtract(int firstNumber, int secondNumber) {
+    emit(firstNumber - secondNumber);
   }
 
-  void reset() {
-    emit(initial);
-  }
-
-  void add(int a, int b) {
-    emit(a + b);
-  }
-
-  void subtract(int a, int b) {
-    emit(a - b);
-  }
-
-  void multiply(int a, int b) {
-    emit(a * b);
+  void multiply(int firstNumber, int secondNumber) {
+    emit(firstNumber * secondNumber);
   }
 }

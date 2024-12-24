@@ -10,12 +10,19 @@ class StudentState {
   });
 
   factory StudentState.initial() {
-    return StudentState(lstStudents: [], isLoading: false);
+    return StudentState(
+      lstStudents: [],
+      isLoading: false,
+    );
   }
 
-  StudentState copyWith({List<StudentModel>? lstStudents, bool? isLoading}) {
+  StudentState copyWith({
+    List<StudentModel>? lstStudents,
+    bool? isLoading,
+  }) {
     return StudentState(
-        lstStudents: lstStudents ?? this.lstStudents,
-        isLoading: isLoading ?? this.isLoading);
+      lstStudents: lstStudents ?? this.lstStudents,
+      isLoading: isLoading ?? this.isLoading,
+    );
   }
 }

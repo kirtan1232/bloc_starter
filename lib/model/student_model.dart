@@ -12,5 +12,9 @@ class StudentModel extends Equatable {
   });
 
   @override
-  List<Object> get props => [name, age, address];
+  List<Object> get props => [
+        name,
+        age,
+        address,
+      ];
 }

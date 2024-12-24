@@ -7,6 +7,7 @@ class StudentCubit extends Cubit<StudentState> {
 
   void addStudent(StudentModel student) {
     emit(state.copyWith(isLoading: true));
+    //wait for 1 second, so that we can see the loading state
     Future.delayed(Duration(seconds: 1), () {
       emit(
         state.copyWith(
@@ -19,7 +20,7 @@ class StudentCubit extends Cubit<StudentState> {
 
   void deleteStudent(int index) {
     emit(state.copyWith(isLoading: true));
-
+    //wait for 1 second, so that we can see the loading state
     Future.delayed(Duration(seconds: 1), () {
       emit(
         state.copyWith(
