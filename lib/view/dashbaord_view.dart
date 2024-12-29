@@ -51,48 +51,6 @@ class DashboardView extends StatelessWidget {
           Card(
             child: InkWell(
               onTap: () {
-                context.read<DashboardCubit>().openArithmeticView(context);
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(Icons.calculate, size: 48),
-                  Text('SImple Interest'),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            child: InkWell(
-              onTap: () {
-                context.read<DashboardCubit>().openArithmeticView(context);
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(Icons.circle, size: 48),
-                  Text('Area of Circle'),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            child: InkWell(
-              onTap: () {
-                context.read<DashboardCubit>().openArithmeticView(context);
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(Icons.rectangle, size: 48),
-                  Text('Area of Rectangle'),
-                ],
-              ),
-            ),
-          ),
-          Card(
-            child: InkWell(
-              onTap: () {
                 context.read<DashboardCubit>().openStudentView(context);
               },
               child: Column(
@@ -100,6 +58,48 @@ class DashboardView extends StatelessWidget {
                 children: const <Widget>[
                   Icon(Icons.person, size: 48),
                   Text('Student Cubit'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openSimpleInterestView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.money, size: 48),
+                  Text('Simple Interest Cubit'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openAreaOfCircleView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.circle, size: 48),
+                  Text('Area of Circle Cubit'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openConverterView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.straighten, size: 48),
+                  Text('Converter'),
                 ],
               ),
             ),
