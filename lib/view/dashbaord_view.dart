@@ -23,7 +23,7 @@ class DashboardView extends StatelessWidget {
           Card(
             child: InkWell(
               onTap: () {
-                context.read<DashboardCubit>().openCounterVIew(context);
+                context.read<DashboardCubit>().openCounterView(context);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -44,6 +44,48 @@ class DashboardView extends StatelessWidget {
                 children: const <Widget>[
                   Icon(Icons.calculate, size: 48),
                   Text('Arithmetic Cubit'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openArithmeticView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.calculate, size: 48),
+                  Text('SImple Interest'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openArithmeticView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.circle, size: 48),
+                  Text('Area of Circle'),
+                ],
+              ),
+            ),
+          ),
+          Card(
+            child: InkWell(
+              onTap: () {
+                context.read<DashboardCubit>().openArithmeticView(context);
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.rectangle, size: 48),
+                  Text('Area of Rectangle'),
                 ],
               ),
             ),
