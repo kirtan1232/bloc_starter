@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc/arithmetic_bloc.dart';
 import 'package:bloc_test/cubit/area_of_circle_cubit.dart';
 import 'package:bloc_test/cubit/arithmetic_counter_cubit.dart';
 import 'package:bloc_test/cubit/converter_cubit.dart';
@@ -5,6 +6,7 @@ import 'package:bloc_test/cubit/counter_cubit.dart';
 import 'package:bloc_test/cubit/simple_interest_cubit.dart';
 import 'package:bloc_test/cubit/student_cubit.dart';
 import 'package:bloc_test/view/area_of_circle_cubit_view.dart';
+import 'package:bloc_test/view/arithmetic_bloc_view.dart';
 import 'package:bloc_test/view/arithmetic_cubit_view.dart';
 import 'package:bloc_test/view/converter_view.dart';
 import 'package:bloc_test/view/counter_cubit_view.dart';
@@ -21,6 +23,7 @@ class DashboardCubit extends Cubit<void> {
     this._simpleInterestCubit,
     this._areaOfCircleCubit,
     this._converterCubit,
+    this._arithmeticBloc,
   ) : super(null);
 
   final CounterCubit _counterCubit;
@@ -29,6 +32,7 @@ class DashboardCubit extends Cubit<void> {
   final SimpleInterestCubit _simpleInterestCubit;
   final AreaOfCircleCubit _areaOfCircleCubit;
   final ConverterCubit _converterCubit;
+  final ArithmeticBloc _arithmeticBloc;
 
   void openCounterView(BuildContext context) {
     Navigator.push(
@@ -97,6 +101,18 @@ class DashboardCubit extends Cubit<void> {
         builder: (_) => BlocProvider.value(
           value: _converterCubit,
           child: ConverterCubitView(),
+        ),
+      ),
+    );
+  }
+
+  void openArithmeticBloc(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => BlocProvider.value(
+          value: _arithmeticBloc,
+          child: ArithmeticBlocView(),
         ),
       ),
     );

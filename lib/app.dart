@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc/arithmetic_bloc.dart';
 import 'package:bloc_test/cubit/area_of_circle_cubit.dart';
 import 'package:bloc_test/cubit/arithmetic_counter_cubit.dart';
 import 'package:bloc_test/cubit/converter_cubit.dart';
@@ -5,6 +6,7 @@ import 'package:bloc_test/cubit/counter_cubit.dart';
 import 'package:bloc_test/cubit/dashboard_cubit.dart';
 import 'package:bloc_test/cubit/simple_interest_cubit.dart';
 import 'package:bloc_test/cubit/student_cubit.dart';
+import 'package:bloc_test/service_locator/service_locator.dart';
 import 'package:bloc_test/view/dashbaord_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,12 +18,28 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => CounterCubit()),
-        BlocProvider(create: (context) => ArithmeticCubit()),
-        BlocProvider(create: (context) => StudentCubit()),
-        BlocProvider(create: (context) => SimpleInterestCubit()),
-        BlocProvider(create: (context) => AreaOfCircleCubit()),
-        BlocProvider(create: (context) => ConverterCubit()),
+        BlocProvider<CounterCubit>(
+            create: (context) => serviceLocator()), //1 method
+        BlocProvider(
+          create: (context) => serviceLocator<ArithmeticCubit>(),
+
+          ///2 method
+        ),
+        BlocProvider(
+          create: (context) => serviceLocator<StudentCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => serviceLocator<SimpleInterestCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => serviceLocator<AreaOfCircleCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => serviceLocator<ConverterCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => serviceLocator<ArithmeticBloc>(),
+        ),
         BlocProvider(
           create: (context) => DashboardCubit(
             context.read<CounterCubit>(),
@@ -30,14 +48,15 @@ class App extends StatelessWidget {
             context.read<SimpleInterestCubit>(),
             context.read<AreaOfCircleCubit>(),
             context.read<ConverterCubit>(),
+            context.read<ArithmeticBloc>(),
           ),
         ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter BLoC',
-        home: BlocProvider(
-          create: (context) => StudentCubit(),
+        home: BlocProvider.value(
+          value: serviceLocator<DashboardCubit>(),
           child: DashboardView(),
         ),
       ),
