@@ -107,7 +107,7 @@ class DashboardView extends StatelessWidget {
           Card(
             child: InkWell(
               onTap: () {
-                context.read<DashboardCubit>().openCounterView(context);
+                context.read<DashboardCubit>().openCounterBloc(context);
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

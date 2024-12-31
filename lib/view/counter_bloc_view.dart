@@ -1,4 +1,4 @@
-import 'package:bloc_test/cubit/counter_cubit.dart';
+import 'package:bloc_test/bloc/counter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -9,7 +9,7 @@ class CounterBlocView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cubit Bloc'),
+        title: const Text('Counter Bloc'),
         centerTitle: true,
       ),
       body: Center(
@@ -23,7 +23,7 @@ class CounterBlocView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            BlocBuilder<CounterCubit, int>(
+            BlocBuilder<CounterBloc, int>(
               builder: (context, state) {
                 return Text(
                   '$state',
@@ -41,21 +41,21 @@ class CounterBlocView extends StatelessWidget {
         children: <Widget>[
           FloatingActionButton(
             onPressed: () {
-              context.read<CounterCubit>().increment();
+              context.read<CounterBloc>().add(AddEvent());
             },
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
           FloatingActionButton(
             onPressed: () {
-              context.read<CounterCubit>().drcrement();
+              context.read<CounterBloc>().add(SubtractEvent());
             },
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
           ),
           FloatingActionButton(
             onPressed: () {
-              context.read<CounterCubit>().reset();
+              context.read<CounterBloc>().add(ResetEvent());
             },
             tooltip: 'Reset',
             child: const Icon(Icons.reset_tv),
