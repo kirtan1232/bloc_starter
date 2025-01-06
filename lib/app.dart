@@ -1,5 +1,6 @@
 import 'package:bloc_test/bloc/arithmetic_bloc.dart';
 import 'package:bloc_test/bloc/counter_bloc.dart';
+import 'package:bloc_test/bloc/student_bloc.dart';
 import 'package:bloc_test/cubit/area_of_circle_cubit.dart';
 import 'package:bloc_test/cubit/arithmetic_counter_cubit.dart';
 import 'package:bloc_test/cubit/converter_cubit.dart';
@@ -45,6 +46,9 @@ class App extends StatelessWidget {
           create: (context) => serviceLocator<CounterBloc>(),
         ),
         BlocProvider(
+          create: (context) => serviceLocator<StudentBloc>(),
+        ),
+        BlocProvider(
           create: (context) => DashboardCubit(
             context.read<CounterCubit>(),
             context.read<ArithmeticCubit>(),
@@ -54,6 +58,7 @@ class App extends StatelessWidget {
             context.read<ConverterCubit>(),
             context.read<ArithmeticBloc>(),
             context.read<CounterBloc>(),
+            context.read<StudentBloc>(),
           ),
         ),
       ],
